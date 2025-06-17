@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bloom Bliss - Flower Shop</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #fff9f9;
+      color: #333;
+    }
+    header {
+      background: #f28ab2;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1rem;
+      text-align: center;
+    }
+    .card-content h3 {
+      margin: 0.5rem 0;
+    }
+    .card-content p {
+      color: #666;
+    }
+    footer {
+      background: #f28ab2;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bloom Bliss</h1>
+    <p>Your One-Stop Shop for Beautiful Blossoms</p>
+  </header>
+
+  <section class="container">
+    <!-- Rose -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1617196034375-2d7c57d9cb5e" alt="Red Rose">
+      <div class="card-content">
+        <h3>Red Rose</h3>
+        <p>Symbol of love and romance.</p>
+      </div>
+    </div>
+
+    <!-- Tulip -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1585241936935-ffe6f34ec7ed" alt="Tulips">
+      <div class="card-content">
+        <h3>Tulips</h3>
+        <p>Perfect for cheerful celebrations and spring vibes.</p>
+      </div>
+    </div>
+
+    <!-- Lily -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1587732403744-63e38d918be5" alt="Lily">
+      <div class="card-content">
+        <h3>White Lily</h3>
+        <p>Elegant and peaceful, ideal for calm occasions.</p>
+      </div>
+    </div>
+
+    <!-- Orchid -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1592150520058-7c3c63c8e6f9" alt="Orchid">
+      <div class="card-content">
+        <h3>Orchid</h3>
+        <p>Exotic and luxurious floral beauty.</p>
+      </div>
+    </div>
+
+    <!-- Sunflower -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1506629082955-511b1c0c41ea" alt="Sunflower">
+      <div class="card-content">
+        <h3>Sunflower</h3>
+        <p>Bright and sunny — a symbol of happiness and positivity.</p>
+      </div>
+    </div>
+
+    <!-- Daisy -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1611077712856-4b3fdf8183b0" alt="Daisy">
+      <div class="card-content">
+        <h3>Daisy</h3>
+        <p>Simple, sweet, and innocent floral charm.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Bloom Bliss | Designed with 🌷</p>
+  </footer>
+
+</body>
+</html>
