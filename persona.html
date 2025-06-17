@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Persona</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .card {
+      background: #fff;
+      color: #333;
+      max-width: 800px;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      overflow: hidden;
+      animation: fadeIn 1s ease-in;
+    }
+    .card-header {
+      background: #2a5298;
+      color: #fff;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    .card-header h1 {
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+    }
+    .card-body {
+      padding: 30px;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      color: #2a5298;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+    .section p, .section ul {
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    ul {
+      list-style: square;
+      padding-left: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #2a5298;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+      margin-top: 20px;
+    }
+    .btn:hover {
+      background: #1e3c72;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    @media (max-width: 600px) {
+      .card-header h1 {
+        font-size: 2rem;
+      }
+      .card-body {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="card-header">
+      <h1 id="userName">Shreesha</h1>
+      <p id="userTagline">Tech Explorer | Dreamer | Creator</p>
+    </div>
+    <div class="card-body">
+      <div class="section">
+        <h2>About Me</h2>
+        <p>
+          I am a passionate learner and web developer who believes in designing with purpose.
+          My curiosity leads me to explore technology, art, and the beautiful intersection of both.
+        </p>
+      </div>
+      <div class="section">
+        <h2>Skills</h2>
+        <ul>
+          <li>Frontend: HTML, CSS, JavaScript, React</li>
+          <li>Backend: Node.js, Express</li>
+          <li>Tools: Git, VS Code, Figma</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2>Interests</h2>
+        <p>
+          Apart from coding, I enjoy photography, writing poetry, and solving mind puzzles. My dream is to create something that inspires and helps others.
+        </p>
+      </div>
+      <div class="section">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:shreesha@example.com">shreesha@example.com</a></p>
+        <a class="btn" href="https://github.com/yourusername" target="_blank">View My GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Customize user name & tagline dynamically
+    const userName = "Shreesha";
+    const tagline = "Tech Explorer | Dreamer | Creator";
+
+    document.getElementById("userName").innerText = userName;
+    document.getElementById("userTagline").innerText = tagline;
+  </script>
+
+</body>
+</html>
