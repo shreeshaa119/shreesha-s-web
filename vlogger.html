@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Day Vlogger Diary</title>
+  <style>
+    body { font-family: Arial,sans-serif; background:#f0f4f8; color:#333; margin:0; padding:20px;}
+    header { text-align:center; margin-bottom:20px;}
+    h1 { color:#2a5298; }
+    .entry-form, .entries-list { background:#fff; border-radius:8px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.05); margin-bottom:20px;}
+    .entry-form input, .entry-form select, .entry-form textarea { width:100%; padding:10px; margin:5px 0 15px; border:1px solid #ccc; border-radius:4px;}
+    .entry-form button { background:#2a5298; color:#fff; padding:12px 20px; border:none; border-radius:5px; cursor:pointer; }
+    .entry-form button:hover { background:#1e3c72; }
+    .entry { border-bottom:1px solid #eee; padding:15px 0; }
+    .entry:last-child { border: none; }
+    .entry-header { display:flex; justify-content:space-between; align-items:center; }
+    .rating { font-size:1.1rem; }
+    .delete-btn { background:#e74c3c; color:white; border:none; border-radius:4px; padding:5px 10px; cursor:pointer;}
+    .delete-btn:hover { background:#c0392b; }
+  </style>
+</head>
+<body>
+  <header><h1>📝 Day Vlogger Diary</h1></header>
+
+  <section class="entry-form">
+    <h2>Add Today's Entry</h2>
+    <label>Date: <input type="date" id="date" required /></label>
+    <label>Day: 
+      <select id="day">
+        <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+        <option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option>
+      </select>
+    </label>
+    <label>Rating (1–5): 
+      <select id="rating">
+        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+      </select>
+    </label>
+    <label>Your Entry:
+      <textarea id="note" rows="4" placeholder="Write something..." required></textarea>
+    </label>
+    <button onclick="saveEntry()">Save Entry</button>
+  </section>
+
+  <section class="entries-list">
+    <h2>Previous Entries</h2>
+    <div id="entries"></div>
+  </section>
+
+  <script>
+    const STORAGE_KEY = 'diaryEntries';
+
+    function loadEntries() {
+      const html = (JSON.parse(localStorage.getItem(STORAGE_KEY)) || [])
+        .map((e, i) => `
+          <div class="entry">
+            <div class="entry-header">
+              <strong>${e.date} (${e.day})</strong>
+              <span class="rating">⭐ ${e.rating}/5</span>
+            </div>
+            <p>${e.note.replace(/\n/g, '<br>')}</p>
+            <button class="delete-btn" onclick="deleteEntry(${i})">Delete</button>
+          </div>
+        `).join('');
+      document.getElementById('entries').innerHTML = html || '<p>No entries yet.</p>';
+    }
+
+    function saveEntry() {
+      const date = document.getElementById('date').value;
+      const day = document.getElementById('day').value;
+      const rating = document.getElementById('rating').value;
+      const note = document.getElementById('note').value.trim();
+      if(!date || !note) return alert('Please fill in date and entry.');
+
+      const entries = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      entries.unshift({ date, day, rating, note });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+
+      // Reset form
+      document.getElementById('note').value = '';
+      loadEntries();
+    }
+
+    function deleteEntry(index) {
+      const entries = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      entries.splice(index, 1);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+      loadEntries();
+    }
+
+    document.addEventListener('DOMContentLoaded', loadEntries);
+  </script>
+</body>
+</html>
